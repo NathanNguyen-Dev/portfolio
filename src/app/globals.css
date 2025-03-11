@@ -1,21 +1,44 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --accent: #333333;
+  --accent-light: #666666;
+  --accent-lighter: #dddddd;
+  --accent-dark: #111111;
+  --muted: #777777;
+  --surface: #f5f5f5;
+  --border: #e0e0e0;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-accent: var(--accent);
+  --color-accent-light: var(--accent-light);
+  --color-accent-lighter: var(--accent-lighter);
+  --color-accent-dark: var(--accent-dark);
+  --color-muted: var(--muted);
+  --color-surface: var(--surface);
+  --color-border: var(--border);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #111111;
+    --foreground: #f5f5f5;
+    --accent: #e0e0e0;
+    --accent-light: #aaaaaa;
+    --accent-lighter: #333333;
+    --accent-dark: #f0f0f0;
+    --muted: #888888;
+    --surface: #1e1e1e;
+    --border: #333333;
   }
 }
 
@@ -23,4 +46,28 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Notion-like selection style */
+::selection {
+  background-color: rgba(0, 0, 0, 0.05);
+  color: inherit;
+}
+
+@media (prefers-color-scheme: dark) {
+  ::selection {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: inherit;
+  }
+}
+
+/* Smoother scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Subtle focus styles */
+:focus {
+  outline: 2px solid var(--accent-lighter);
+  outline-offset: 2px;
 }
